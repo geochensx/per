@@ -45,10 +45,9 @@ class RXKF:
     def sign(self):
         url = f'https://mall-api.luckincoffeeshop.com/p/signIn/userSignIn'
         data = requests.post(url, headers=self.headers, data="").json()
-        signDays = None
         if 'code' in data and data['code'] == 'A0003':
             self.print_now("CK已失效，请重新获取")
-            exit(0)
+            return False
         elif 'code' in data and data['code'] == '00000':
             data_data = data['data'][0]
             score = data_data.get('score')
@@ -57,7 +56,8 @@ class RXKF:
             self.task_info += f"签到失败，今天已签到\n"
         else:
             self.print_now(f"签到失败：{data}")
-            self.task_info += f"签到失败：{data}\n"        
+            self.task_info += f"签到失败：{data}\n"
+        return True        
 
     def get_userinfo(self):
         url = f"https://mall-api.luckincoffeeshop.com/p/user/userInfo"
@@ -68,10 +68,31 @@ class RXKF:
             self.user_info+=f"用户手机：{userMobile}当前积分：{score}\n"
         else:
             self.user_info = f"查询失败,未获取到用户信息{data}\n"
+    def lottery(self):
+        url = f"https://mall-api.luckincoffeeshop.com/p/lottery/getDetail?activityId=191"
+        data = requests.get(url, headers=self.headers).json()
+        if 'code' in data and data['code'] == '00000':
+            lotteryNum=data['data']['lotteryNum']
+        else:
+            self.user_info = f"抽奖失败{data}\n"
+        if lotteryNum>=1:
+            for i in range(lotteryNum):              
+                url=f"https://mall-api.luckincoffeeshop.com/p/lottery/lottery?activityId=191"
+                data = requests.get(url, headers=self.headers).json()
+                if 'code' in data and data['code'] == '00000':
+                    awardName=data['data']['awardName']
+                    self.task_info += f"抽奖成功，获得{awardName}个抽奖机会\n"
+                else:
+                    self.task_info += f"抽奖失败{data}\n"
+        elif lotteryNum==0:
+            self.task_info += f"今日已抽过奖\n"
+        else:
+            self.task_info += f"抽奖失败\n"
 
     def main(self):
-        self.sign()
-        self.get_userinfo()
+        if self.sign():  
+            self.lottery()
+            self.get_userinfo()
         self.msg = self.user_info + self.task_info
         send = load_send()
         if callable(send):
