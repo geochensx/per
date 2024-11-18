@@ -391,64 +391,6 @@ function formatDate(date) {
 
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
-async function checkin() {
-  return new Promise(_0x1d06f3 => {
-    t1 = new Date().getTime();
-    t2 = new Date().getTime();
-    t3 = new Date().getTime();
-    t4 = formatDate(new Date());
-    devece = "eyJkZXZpY2UiOiJYaWFvbWkgTTIxMDJKMlNDIiwiZGV2aWNlSWQiOiJCVEozQ1V5TThGNjFvK2U5NnZKT2pxK3VlbEFEVDFyclc5VUdwVy9JdHRpVmhub1dIeW5TRkFzNU9jRmtneUhMb2pVaWZ5L0ozVExSNkZ3a2VtT1JKdUFcdTAwM2RcdTAwM2QiLCJsb2NhdGlvbiI6eyJncHNMYXRpdHVkZSI6IjI5Ljg2MDk0MiIsImdwc0xvbmdpdHVkZSI6IjEyMS41MTk4NzIifSwicGhvbmUiOiIxODc3MDgxMTgyMiJ9";
-    sign1 = "action=mixc.app.memberSign.sign&apiVersion=1.0&appId=68a91a5bac6a4f3e91bf4b42856785c6&appVersion=3.62.2&channel=C001&date=" + t4 + "&deviceParams=" + devece + "&imei=728496158455898&mac=&mallNo=20066&osVersion=14&params=eyJtYWxsTm8iOiIyMDA2NiJ9&platform=h5&t=" + t2 + "&timestamp=" + t1 + "&token=" + ydwxhd + "&P@Gkbu0shTNHjhM!7F";
-    sings = MD5(sign1);
-    var _0xd43b91 = {
-      "method": "POST",
-      "url": "https://app.mixcapp.com/mixc/gateway",
-      "headers": {
-        "Host": "app.mixcapp.com",
-        "User-Agent": "Mozilla/5.0 (Linux; Android 14; M2102J2SC Build/UKQ1.231003.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/118.0.0.0 Mobile Safari/537.36/MIXCAPP/3.62.2/AnalysysAgent/Hybrid",
-        "Origin": "https://app.mixcapp.com",
-        "X-Requested-With": "com.crland.mixc",
-        "Referer": "https://app.mixcapp.com/m/m-20066/signIn?appVersion=3.62.2&mallNo=20066&timestamp=" + t2 + "&showWebNavigation=true",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-        "Cookie": "ARK_ID=JScd69b4d46dde864d6969d839ca63f3e8cd69; smidV2=20241114185130d4e187a8d0dfc6e2873b778d98370df70098a3e9b01625f40; acw_tc=2f6a1fe117317470515201871e96e3f03510b17b7f60330d6bd553993d5c67; .thumbcache_ec7e32560cc6466cbfc6c2019b9bdce8=rYhgUkn4LbDqBIJq9D8af1wNp6CtkgBSuXzISYmYs3mCIcTv/OyEHO/KfyzXdvv+sRy2n1/zyLrS1VO1Bi3YoQ%3D%3D; FZ_STROAGE.mixcapp.com=eyJTRUVTSU9OSUQiOiJkYTY4MDgwNTJiOTkzYTVlIiwiU0VFU0lPTkRBVEUiOjE3MzE3NDcwNTQwMjksIkFOU0FQUElEIjoiMTFmODI1MzA1NTZjY2VjNiIsIkFOUyRERUJVRyI6MCwiQU5TVVBMT0FEVVJMIjoiaHR0cHM6Ly9kYXRhcy5taXhjYXBwLmNvbS8iLCJGUklTVERBWSI6IjIwMjQxMTE0IiwiRlJJU1RJTUUiOnRydWUsIkFSS19JRCI6IkpTY2Q2OWI0ZDQ2ZGRlODY0ZDY5NjlkODM5Y2E2M2YzZThjZDY5In0%3D"
-      },
-      "data": {
-        "mallNo": "20066",
-        "appId": "68a91a5bac6a4f3e91bf4b42856785c6",
-        "platform": "h5",
-        "imei": "728496158455898",
-        "appVersion": "3.62.2",
-        "osVersion": "14",
-        "action": "mixc.app.memberSign.sign",
-        "apiVersion": "1.0",
-        "timestamp": t1,
-        "deviceParams": devece,
-        "date": t4,
-        "channel": "C001",
-        "mac": "",
-        "t": t2,
-        "token": ydwxhd,
-        "params": "eyJtYWxsTm8iOiIyMDA2NiJ9",
-        "sign": sings
-      };
-      debug && (log("\n【debug】=============== 这是  请求 url ==============="), log(JSON.stringify(_0xd43b91)));
-    axios.request(_0xd43b91).then(async function (_0x1f8d47) {
-      try {
-        data = _0x1f8d47.data;
-        debug && (log("\n\n【debug】===============这是 返回data=============="), log(JSON.stringify(_0x1f8d47.data)));
-        if (data.code = 0) log("point:" + data.data.point), log("point:" + data.data.userPoints), msg + "\n" + data.message; else log(data.message);
-        msg += "\n" + data.message;
-      } catch (_0x3be33f) {
-        log("异常：" + data + "，原因：" + data.message);
-      }
-    }).catch(function (_0x58ed10) {
-      console.error(_0x58ed10);
-    }).then(_0x5525b3 => {
-      _0x1d06f3();
-    });
-  });
-}
 async function oleloign() {
   return new Promise(_0x172fae => {
     t = new Date().getTime();
