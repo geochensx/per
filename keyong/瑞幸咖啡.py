@@ -79,7 +79,7 @@ class RXKF:
                 data = requests.get(url, headers=self.headers).json()
                 if 'code' in data and data['code'] == '00000':
                     awardName=data['data']['awardName']
-                    self.task_info += f"抽奖成功，获得{awardName}个抽奖机会\n"
+                    self.task_info += f"抽奖成功，获得{awardName}积分\n"
                 else:
                     self.task_info += f"抽奖失败{data}\n"
         elif lotteryNum==0:
