@@ -1,3 +1,7 @@
+"""
+new Env("必要插件无需运行")
+cron: 25 6 * * 1
+"""
 import hashlib
 import json
 import os

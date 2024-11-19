@@ -4,6 +4,10 @@
 # @Author  : curtinlv
 # @File    : sendNotify.py
 # @Software: PyCharm
+"""
+new Env("必要插件无需运行")
+cron: 25 6 * * 1
+"""
 #不才库必要依赖
 import sys
 import os, re

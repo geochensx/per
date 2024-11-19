@@ -1,11 +1,9 @@
 
-# @env : rxkfck
 # 功能：瑞幸签到 
 # -------------------------------
 """
-export rxkf = "7518db86-240a-4d70-8e1f-96eca2c16c9f"
 new Env("瑞幸咖啡")
-cron: 25 6,12,18 * * *
+cron: 30 12 * * *
 """
 from datetime import datetime
 from json import dumps

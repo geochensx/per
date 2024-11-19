@@ -1,4 +1,7 @@
+
 /*
+cron 0,9 * * 1
+const $ = new Env("必要插件，无需运行")
  * @Author: lxk0301 https://gitee.com/lxk0301
  * @Date: 2020-08-19 16:12:40
  * @Last Modified by: whyour
@@ -855,8 +858,8 @@ function qywxamNotify(text, desp) {
             if (err) {
               console.log(
                 '成员ID:' +
-                  ChangeUserId(desp) +
-                  '企业微信应用消息发送通知消息失败！！\n',
+                ChangeUserId(desp) +
+                '企业微信应用消息发送通知消息失败！！\n',
               );
               console.log(err);
             } else {
@@ -864,8 +867,8 @@ function qywxamNotify(text, desp) {
               if (data.errcode === 0) {
                 console.log(
                   '成员ID:' +
-                    ChangeUserId(desp) +
-                    '企业微信应用消息发送通知消息成功🎉。\n',
+                  ChangeUserId(desp) +
+                  '企业微信应用消息发送通知消息成功🎉。\n',
                 );
               } else {
                 console.log(`${data.errmsg}\n`);
@@ -949,8 +952,7 @@ function pushPlusNotify(text, desp) {
         try {
           if (err) {
             console.log(
-              `push+发送${
-                PUSH_PLUS_USER ? '一对多' : '一对一'
+              `push+发送${PUSH_PLUS_USER ? '一对多' : '一对一'
               }通知消息失败！！\n`,
             );
             console.log(err);
@@ -958,14 +960,12 @@ function pushPlusNotify(text, desp) {
             data = JSON.parse(data);
             if (data.code === 200) {
               console.log(
-                `push+发送${
-                  PUSH_PLUS_USER ? '一对多' : '一对一'
+                `push+发送${PUSH_PLUS_USER ? '一对多' : '一对一'
                 }通知消息完成。\n`,
               );
             } else {
               console.log(
-                `push+发送${
-                  PUSH_PLUS_USER ? '一对多' : '一对一'
+                `push+发送${PUSH_PLUS_USER ? '一对多' : '一对一'
                 }通知消息失败：${data.msg}\n`,
               );
             }
