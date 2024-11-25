@@ -1,41 +1,41 @@
 /**
- * ½Å±¾Ãû³Æ£º½¨ĞĞÉú»î
- * »î¶¯Èë¿Ú£º½¨ĞĞÉú»îAPP -> Ê×Ò³ -> »áÔ±ÓĞÀñ -> Ç©µ½
- * ½Å±¾ËµÃ÷£ºÁ¬ĞøÇ©µ½ÁìÓÅ»İÈ¯Àñ°ü£¨´ò³µ¡¢ÍâÂôÓÅ»İÈ¯£©£¬ÅäÖÃÖØĞ´ÊÖ¶¯Ç©µ½Ò»´Î¼´¿É»ñÈ¡Ç©µ½Êı¾İ£¬Ä¬ÈÏÁìÈ¡ÍâÂôÈ¯£¬¿ÉÔÚ BoxJS ÅäÖÃ½±Æ·¡£¼æÈİ Node.js »·¾³£¬±äÁ¿Ãû³Æ JHSH_BODY¡¢JHSH_GIFT¡¢JHSH_LOGIN_INFO£¬¶àÕËºÅ·Ö¸î·û "|"¡£
- * ²Ö¿âµØÖ·£ºhttps://github.com/FoKit/Scripts
- * ¸üĞÂÊ±¼ä£º2023-10-31  ĞŞ¸´¶àÕËºÅ Set-Cookie ²ÎÊıµÄ´®ºÅÎÊÌâ
- * ¸üĞÂÊ±¼ä£º2023-10-30  ĞŞ¸´ Cokie Ê§Ğ§ÎÊÌâ£¬Ôö¼ÓÆïĞĞÈ¯ÀàĞÍ²ÎÊı£¬¸ĞĞ» Sliverkiss¡¢??????¡¢²Ô¾®»Ò»Ò ´óÀĞÌá¹©°ïÖú¡£
- * ¸üĞÂÊ±¼ä£º2024-01-30  ĞŞ¸´ Stash ´úÀí¹¤¾ßÎŞ·¨»ñÈ¡ mbc-user-agent ²ÎÊıÎÊÌâ
- * ¸üĞÂÊ±¼ä£º2024-01-31  Ôö¼Ó½è¼Ç¿¨ÓÃ»§×Ô¶¯¶ÏÇ©¹¦ÄÜ£¬·Ç½¨ĞĞĞÅÓÃ¿¨ÓÃ»§Á¬ĞøÇ©µ½ 7 ÌìÓÅ»İÁ¦¶È½ÏµÍ(Âú39Ôª¼õ10Ôª)
- * ¸üĞÂÊ±¼ä£º2024-02-18  ĞŞ¸´Ä¬ÈÏ¶ÏÇ©ÎÊÌâ
- * ¸üĞÂÊ±¼ä£º2024-02-21  ĞŞ¸´±äÁ¿×÷ÓÃÓòµ¼ÖÂÎŞ·¨×Ô¶¯ÁìÈ¡Ç©µ½½±ÀøÎÊÌâ
- * ¸üĞÂÊ±¼ä£º2024-03-27  Ö§³Ö Node.js »·¾³¶ÁÈ¡½Å±¾Í¬Ä¿Â¼ box.dat µÄ JHSH_SKIPDAY »º´æ£¬ÄÚÈİ¸ñÊ½£º{"JHSH_SKIPDAY": "3"}
+ * è„šæœ¬åç§°ï¼šå»ºè¡Œç”Ÿæ´»
+ * æ´»åŠ¨å…¥å£ï¼šå»ºè¡Œç”Ÿæ´»APP -> é¦–é¡µ -> ä¼šå‘˜æœ‰ç¤¼ -> ç­¾åˆ°
+ * è„šæœ¬è¯´æ˜ï¼šè¿ç»­ç­¾åˆ°é¢†ä¼˜æƒ åˆ¸ç¤¼åŒ…ï¼ˆæ‰“è½¦ã€å¤–å–ä¼˜æƒ åˆ¸ï¼‰ï¼Œé…ç½®é‡å†™æ‰‹åŠ¨ç­¾åˆ°ä¸€æ¬¡å³å¯è·å–ç­¾åˆ°æ•°æ®ï¼Œé»˜è®¤é¢†å–å¤–å–åˆ¸ï¼Œå¯åœ¨ BoxJS é…ç½®å¥–å“ã€‚å…¼å®¹ Node.js ç¯å¢ƒï¼Œå˜é‡åç§° JHSH_BODYã€JHSH_GIFTã€JHSH_LOGIN_INFOï¼Œå¤šè´¦å·åˆ†å‰²ç¬¦ "|"ã€‚
+ * ä»“åº“åœ°å€ï¼šhttps://github.com/FoKit/Scripts
+ * æ›´æ–°æ—¶é—´ï¼š2023-10-31  ä¿®å¤å¤šè´¦å· Set-Cookie å‚æ•°çš„ä¸²å·é—®é¢˜
+ * æ›´æ–°æ—¶é—´ï¼š2023-10-30  ä¿®å¤ Cokie å¤±æ•ˆé—®é¢˜ï¼Œå¢åŠ éª‘è¡Œåˆ¸ç±»å‹å‚æ•°ï¼Œæ„Ÿè°¢ Sliverkissã€??????ã€è‹äº•ç°ç° å¤§ä½¬æä¾›å¸®åŠ©ã€‚
+ * æ›´æ–°æ—¶é—´ï¼š2024-01-30  ä¿®å¤ Stash ä»£ç†å·¥å…·æ— æ³•è·å– mbc-user-agent å‚æ•°é—®é¢˜
+ * æ›´æ–°æ—¶é—´ï¼š2024-01-31  å¢åŠ å€Ÿè®°å¡ç”¨æˆ·è‡ªåŠ¨æ–­ç­¾åŠŸèƒ½ï¼Œéå»ºè¡Œä¿¡ç”¨å¡ç”¨æˆ·è¿ç»­ç­¾åˆ° 7 å¤©ä¼˜æƒ åŠ›åº¦è¾ƒä½(æ»¡39å…ƒå‡10å…ƒ)
+ * æ›´æ–°æ—¶é—´ï¼š2024-02-18  ä¿®å¤é»˜è®¤æ–­ç­¾é—®é¢˜
+ * æ›´æ–°æ—¶é—´ï¼š2024-02-21  ä¿®å¤å˜é‡ä½œç”¨åŸŸå¯¼è‡´æ— æ³•è‡ªåŠ¨é¢†å–ç­¾åˆ°å¥–åŠ±é—®é¢˜
+ * æ›´æ–°æ—¶é—´ï¼š2024-03-27  æ”¯æŒ Node.js ç¯å¢ƒè¯»å–è„šæœ¬åŒç›®å½• box.dat çš„ JHSH_SKIPDAY ç¼“å­˜ï¼Œå†…å®¹æ ¼å¼ï¼š{"JHSH_SKIPDAY": "3"}
 /*
 
 https://raw.githubusercontent.com/FoKit/Scripts/main/boxjs/fokit.boxjs.json
 https://raw.githubusercontent.com/FoKit/Scripts/main/rewrite/get_jhsh_cookie.sgmodule
 
------------------- Surge ÅäÖÃ -----------------
+------------------ Surge é…ç½® -----------------
 
 [MITM]
 hostname = yunbusiness.ccb.com
 
 [Script]
-½¨ĞĞÊı¾İ = type=http-request,pattern=^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
+å»ºè¡Œæ•°æ® = type=http-request,pattern=^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
 
-½¨ĞĞÉú»î = type=cron,cronexp=17 7 * * *,timeout=60,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,script-update-interval=0
+å»ºè¡Œç”Ÿæ´» = type=cron,cronexp=17 7 * * *,timeout=60,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,script-update-interval=0
 
------------------- Loon ÅäÖÃ ------------------
+------------------ Loon é…ç½® ------------------
 
 [MITM]
 hostname = yunbusiness.ccb.com
 
 [Script]
-http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) tag=½¨ĞĞÊı¾İ, script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,requires-body=1
+http-request ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) tag=å»ºè¡Œæ•°æ®, script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,requires-body=1
 
-cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,tag = ½¨ĞĞÉú»î,enable=true
+cron "17 7 * * *" script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,tag = å»ºè¡Œç”Ÿæ´»,enable=true
 
--------------- Quantumult X ÅäÖÃ --------------
+-------------- Quantumult X é…ç½® --------------
 
 [MITM]
 hostname = yunbusiness.ccb.com
@@ -44,13 +44,13 @@ hostname = yunbusiness.ccb.com
 ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin) url script-request-body https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
 
 [task_local]
-17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=½¨ĞĞÉú»î, enabled=true
+17 7 * * * https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js, tag=å»ºè¡Œç”Ÿæ´», enabled=true
 
------------------- Stash ÅäÖÃ -----------------
+------------------ Stash é…ç½® -----------------
 
 cron:
   script:
-    - name: ½¨ĞĞÉú»î
+    - name: å»ºè¡Œç”Ÿæ´»
       cron: '17 7 * * *'
       timeout: 10
 
@@ -59,25 +59,25 @@ http:
     - "yunbusiness.ccb.com"
   script:
     - match: ^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin)
-      name: ½¨ĞĞÉú»î
+      name: å»ºè¡Œç”Ÿæ´»
       type: request
       require-body: true
 
 script-providers:
-  ½¨ĞĞÉú»î:
+  å»ºè¡Œç”Ÿæ´»:
     url: https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
     interval: 86400
 
 */
 
-const $ = new Env('½¨ĞĞÉú»î');
+const $ = new Env('å»ºè¡Œç”Ÿæ´»');
 const notify = $.isNode() ? require('./sendNotify') : '';
-let AppId = '1472477795', giftMap = { "1": "´ò³µ", "2": "ÍâÂô", "3": "ÆïĞĞ" }, message = '';
-let giftType = getEnv('JHSH_GIFT') || '2';  // ½±ÀøÀàĞÍ£¬Ä¬ÈÏÁìÈ¡'ÍâÂô'È¯
-let bodyStr = getEnv('JHSH_BODY') || '';  // Ç©µ½ËùĞèµÄ body
-let autoLoginInfo = getEnv('JHSH_LOGIN_INFO') || '';  // Ë¢ĞÂ session ËùĞèµÄÊı¾İ
-let AppVersion = getEnv('JHSH_VERSION') || '2.1.5.002';  // ×îĞÂ°æ±¾ºÅ£¬»ñÈ¡Ê§°ÜÊ±Ê¹ÓÃ
-let skipDay = getEnv('JHSH_SKIPDAY') || '';  // ÏÂ¸ö¶ÏÇ©ÈÕ (ÊÊÓÃÓÚ½è¼Ç¿¨ÓÃ»§)
+let AppId = '1472477795', giftMap = { "1": "æ‰“è½¦", "2": "å¤–å–", "3": "éª‘è¡Œ" }, message = '';
+let giftType = getEnv('JHSH_GIFT') || '2';  // å¥–åŠ±ç±»å‹ï¼Œé»˜è®¤é¢†å–'å¤–å–'åˆ¸
+let bodyStr = getEnv('JHSH_BODY') || '';  // ç­¾åˆ°æ‰€éœ€çš„ body
+let autoLoginInfo = getEnv('JHSH_LOGIN_INFO') || '';  // åˆ·æ–° session æ‰€éœ€çš„æ•°æ®
+let AppVersion = getEnv('JHSH_VERSION') || '2.1.5.002';  // æœ€æ–°ç‰ˆæœ¬å·ï¼Œè·å–å¤±è´¥æ—¶ä½¿ç”¨
+let skipDay = getEnv('JHSH_SKIPDAY') || '';  // ä¸‹ä¸ªæ–­ç­¾æ—¥ (é€‚ç”¨äºå€Ÿè®°å¡ç”¨æˆ·)
 let bodyArr = bodyStr ? bodyStr.split("|") : [];
 let bodyArr2 = autoLoginInfo ? autoLoginInfo.split("|") : [];
 $.is_debug = getEnv('is_debug') || 'false';
@@ -88,28 +88,28 @@ if (isGetCookie = typeof $request !== `undefined`) {
 } else {
     !(async () => {
         if (!autoLoginInfo || !bodyStr) {
-            $.msg($.name, '? ÇëÏÈ»ñÈ¡½¨ĞĞÉú»îCookie¡£');
+            $.msg($.name, '? è¯·å…ˆè·å–å»ºè¡Œç”Ÿæ´»Cookieã€‚');
             return;
         }
         const date = new Date();
         $.whichDay = date.getDay();
         $.weekMap = {
-            0: "ĞÇÆÚÌì",
-            1: "ĞÇÆÚÒ»",
-            2: "ĞÇÆÚ¶ş",
-            3: "ĞÇÆÚÈı",
-            4: "ĞÇÆÚËÄ",
-            5: "ĞÇÆÚÎå",
-            6: "ĞÇÆÚÁù",
+            0: "æ˜ŸæœŸå¤©",
+            1: "æ˜ŸæœŸä¸€",
+            2: "æ˜ŸæœŸäºŒ",
+            3: "æ˜ŸæœŸä¸‰",
+            4: "æ˜ŸæœŸå››",
+            5: "æ˜ŸæœŸäº”",
+            6: "æ˜ŸæœŸå…­",
         };
         if ($.whichDay === parseInt(skipDay)) {
-            let text = `½ñÌìÊÇ¶ÏÇ©ÈÕ[${$.weekMap[$.whichDay]}], Ìø¹ıÇ©µ½ÈÎÎñ¡£`
+            let text = `ä»Šå¤©æ˜¯æ–­ç­¾æ—¥[${$.weekMap[$.whichDay]}], è·³è¿‡ç­¾åˆ°ä»»åŠ¡ã€‚`
             console.log(text);
             message += text;
             return;
         }
-        console.log(`\n¹²ÓĞ[${bodyArr.length}]¸ö½¨ĞĞÉú»îÕËºÅ\n`);
-        await getLatestVersion();  // »ñÈ¡°æ±¾ĞÅÏ¢
+        console.log(`\nå…±æœ‰[${bodyArr.length}]ä¸ªå»ºè¡Œç”Ÿæ´»è´¦å·\n`);
+        await getLatestVersion();  // è·å–ç‰ˆæœ¬ä¿¡æ¯
         for (let i = 0; i < bodyArr.length; i++) {
             if (bodyArr[i]) {
                 $.index = i + 1;
@@ -123,14 +123,14 @@ if (isGetCookie = typeof $request !== `undefined`) {
                 $.DeviceId = $.info2['DeviceId'];
                 $.MBCUserAgent = $.info2['MBCUserAgent'];
                 $.ALBody = $.info2['Body'];
-                console.log(`\n===== ÕËºÅ[${$.info?.USR_TEL || $.index}]¿ªÊ¼Ç©µ½ =====\n`);
+                console.log(`\n===== è´¦å·[${$.info?.USR_TEL || $.index}]å¼€å§‹ç­¾åˆ° =====\n`);
                 if (!$.info?.MID || !$.DeviceId || !$.MBCUserAgent || !$.ALBody) {
-                    message += `? ÕËºÅ [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] È±ÉÙ²ÎÊı£¬ÇëÖØĞÂ»ñÈ¡Cookie¡£\n`;
+                    message += `? è´¦å· [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] ç¼ºå°‘å‚æ•°ï¼Œè¯·é‡æ–°è·å–Cookieã€‚\n`;
                     continue;
                 }
-                await autoLogin();  // Ë¢ĞÂ session
+                await autoLogin();  // åˆ·æ–° session
                 if (!$.token) continue;
-                await main();  // Ç©µ½Ö÷º¯Êı
+                await main();  // ç­¾åˆ°ä¸»å‡½æ•°
                 if ($.giftList.length > 0) {
                     for (let j = 0; j < $.giftList.length; j++) {
                         if ($.isGetGift) break;
@@ -140,27 +140,27 @@ if (isGetCookie = typeof $request !== `undefined`) {
                         $.couponType = item?.couponType;
                         $.dccpBscInfSn = item?.dccpBscInfSn;
                         $.continue = false;
-                        console.log(`³¢ÊÔÁìÈ¡[${giftMap[giftType]}]È¯`);
+                        console.log(`å°è¯•é¢†å–[${giftMap[giftType]}]åˆ¸`);
                         for (let k = 1; k <= 3; k++) {
                             if (!$.continue) {
-                                if (k >= 2) console.log(`ÁìÈ¡Ê§°Ü£¬ÖØÊÔÒ»´Î`);
+                                if (k >= 2) console.log(`é¢†å–å¤±è´¥ï¼Œé‡è¯•ä¸€æ¬¡`);
                                 await $.wait(1000 * 5);
-                                await getGift();  // ÁìÈ¡½±Àø
+                                await getGift();  // é¢†å–å¥–åŠ±
                                 if ($.isGetGift) break;
                             }
                         }
                     };
                     if (!$.isGetGift) {
-                        $.getGiftMsg = `Çë´ò¿ªapp²é¿´ÓÅ»İÈ¯µ½ÕËÇé¿ö¡£\n`;
+                        $.getGiftMsg = `è¯·æ‰“å¼€appæŸ¥çœ‹ä¼˜æƒ åˆ¸åˆ°è´¦æƒ…å†µã€‚\n`;
                     }
-                    message += "£¬" + $.getGiftMsg;
+                    message += "ï¼Œ" + $.getGiftMsg;
                 }
                 await $.wait(1000 * 3);
             }
         }
     })()
         .catch((e) => {
-            $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
+            $.log('', `? ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
         })
         .finally(async () => {
             if (message) {
@@ -176,18 +176,18 @@ if (isGetCookie = typeof $request !== `undefined`) {
 }
 
 
-// »ñÈ¡Ç©µ½Êı¾İ
+// è·å–ç­¾åˆ°æ•°æ®
 function GetCookie() {
     debug($request.headers);
     debug($request.body);
-    const headers = ObjectKeys2LowerCase($request.headers);  // ½« headers µÄËùÓĞ key ×ª»»ÎªĞ¡Ğ´ÒÔ¼æÈİ¸÷¸ö´úÀí App
+    const headers = ObjectKeys2LowerCase($request.headers);  // å°† headers çš„æ‰€æœ‰ key è½¬æ¢ä¸ºå°å†™ä»¥å…¼å®¹å„ä¸ªä»£ç† App
     if (/A3341A038/.test($request.url)) {
         $.body = JSON.parse($request.body);
         $.body['MID'] = headers['mid'];
         $.body = JSON.stringify($.body);
-        console.log(`¿ªÊ¼ĞÂÔöÓÃ»§Êı¾İ ${$.body}`);
+        console.log(`å¼€å§‹æ–°å¢ç”¨æˆ·æ•°æ® ${$.body}`);
         $.setdata($.body, 'JHSH_BODY');
-        $.msg($.name, ``, `? ½¨ĞĞÉú»îÇ©µ½Êı¾İ»ñÈ¡³É¹¦¡£`);
+        $.msg($.name, ``, `? å»ºè¡Œç”Ÿæ´»ç­¾åˆ°æ•°æ®è·å–æˆåŠŸã€‚`);
     } else if (/autoLogin/.test($request.url)) {
         $.DeviceId = headers['deviceid'];
         $.MBCUserAgent = headers['mbc-user-agent'];
@@ -198,15 +198,15 @@ function GetCookie() {
                 "Body": $request.body
             }
             $.setdata(JSON.stringify(autoLoginInfo), 'JHSH_LOGIN_INFO');
-            console.log(JSON.stringify(autoLoginInfo) + "Ğ´Èë³É¹¦");
+            console.log(JSON.stringify(autoLoginInfo) + "å†™å…¥æˆåŠŸ");
         } else {
-            console.log("? autoLogin Êı¾İ»ñÈ¡Ê§°Ü");
+            console.log("? autoLogin æ•°æ®è·å–å¤±è´¥");
         }
     }
 }
 
 
-// Ë¢ĞÂ session
+// åˆ·æ–° session
 async function autoLogin() {
     let opt = {
         url: `https://yunbusiness.ccb.com/clp_service/txCtrl?txcode=autoLogin`,
@@ -225,22 +225,22 @@ async function autoLogin() {
         $.post(opt, async (error, response, data) => {
             try {
                 let result = $.toObj(data) || response.body;
-                // Èç¹ûÊı¾İÎ´¼ÓÃÜ£¬Ôò session Î´¹ıÆÚ
+                // å¦‚æœæ•°æ®æœªåŠ å¯†ï¼Œåˆ™ session æœªè¿‡æœŸ
                 if (result?.errCode) {
-                    // {"newErrMsg":"Î´ÄÜ´¦ÀíÄúµÄÇëÇó¡£ÈçÓĞÒÉÎÊ£¬Çë×ÉÑ¯ÔÚÏß¿Í·ş»òÖÂµç95533","data":"","reqFlowNo":"","errCode":"0","errMsg":"sessionÎ´Ê§Ğ§,ÎğÖØ¸´µÇÂ¼"}
+                    // {"newErrMsg":"æœªèƒ½å¤„ç†æ‚¨çš„è¯·æ±‚ã€‚å¦‚æœ‰ç–‘é—®ï¼Œè¯·å’¨è¯¢åœ¨çº¿å®¢æœæˆ–è‡´ç”µ95533","data":"","reqFlowNo":"","errCode":"0","errMsg":"sessionæœªå¤±æ•ˆ,å‹¿é‡å¤ç™»å½•"}
                     // $.token = $.getdata('JHSH_TOKEN');
                     console.log(`${result?.errMsg}`);
                 } else {
                     const set_cookie = response.headers['set-cookie'] || response.headers['Set-cookie'] || response.headers['Set-Cookie'];
-                    // !$.isNode() ? $.setdata($.token, 'JHSH_TOKEN') : '';  // Êı¾İ³Ö¾Ã»¯
+                    // !$.isNode() ? $.setdata($.token, 'JHSH_TOKEN') : '';  // æ•°æ®æŒä¹…åŒ–
                     let new_cookie = $.toStr(set_cookie).match(/SESSION=([a-f0-9-]+);/);
                     if (new_cookie) {
                         $.token = new_cookie[0];
-                        console.log(`? Ë¢ĞÂ session ³É¹¦!`);
+                        console.log(`? åˆ·æ–° session æˆåŠŸ!`);
                         debug(new_cookie);
                     } else {
-                        message += `? ÕËºÅ [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] Ë¢ĞÂ session Ê§°Ü£¬ÇëÖØĞÂ»ñÈ¡Cookie¡£\n`;
-                        console.log(`?? Ë¢ĞÂ session Ê§°Ü`);
+                        message += `? è´¦å· [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] åˆ·æ–° session å¤±è´¥ï¼Œè¯·é‡æ–°è·å–Cookieã€‚\n`;
+                        console.log(`?? åˆ·æ–° session å¤±è´¥`);
                         debug(set_cookie);
                     }
                 }
@@ -254,7 +254,7 @@ async function autoLogin() {
 }
 
 
-// Ç©µ½Ö÷º¯Êı
+// ç­¾åˆ°ä¸»å‡½æ•°
 async function main() {
     let opt = {
         url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341A115`,
@@ -278,22 +278,22 @@ async function main() {
                     data = JSON.parse(data);
                     let text = '';
                     if (data.errCode == 0) {
-                        text = `? ÕËºÅ [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] Ç©µ½³É¹¦`;
+                        text = `? è´¦å· [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] ç­¾åˆ°æˆåŠŸ`;
                         console.log(text);
                         message += text;
                         if (data?.data?.IS_AWARD == 1) {
-                            // ¸üĞÂ×Ô¶¯¶ÏÇ©ÈÕ
+                            // æ›´æ–°è‡ªåŠ¨æ–­ç­¾æ—¥
                             if (skipDay >= 0) {
-                                // µ± $.whichDay µÈÓÚ 6 Ê±£¬ÏÂÒ»¶ÏÇ©ÈÕĞŞÕıÎª 0£¬·ñÔò $.whichDay + 1
+                                // å½“ $.whichDay ç­‰äº 6 æ—¶ï¼Œä¸‹ä¸€æ–­ç­¾æ—¥ä¿®æ­£ä¸º 0ï¼Œå¦åˆ™ $.whichDay + 1
                                 $.whichDay = $.whichDay == 6 ? 0 : $.whichDay + 1;
                                 $.setdata(String($.whichDay), 'JHSH_SKIPDAY');
-                                console.log(`?? ÒÑ¸üĞÂ¶ÏÇ©ÅäÖÃ£ºÃ÷Ìì(${$.weekMap[$.whichDay]})½«»á¶ÏÇ©`);
+                                console.log(`?? å·²æ›´æ–°æ–­ç­¾é…ç½®ï¼šæ˜å¤©(${$.weekMap[$.whichDay]})å°†ä¼šæ–­ç­¾`);
                             }
                             $.GIFT_BAG = data?.data?.GIFT_BAG;
                             $.GIFT_BAG.forEach(item => {
                                 let body = { "couponId": item.couponId, "nodeDay": item.nodeDay, "couponType": item.couponType, "dccpBscInfSn": item.dccpBscInfSn };
                                 if (new RegExp(`${giftMap[giftType]}`).test(item?.couponName)) {
-                                    if (/ĞÅÓÃ¿¨/.test(item?.couponName)) {
+                                    if (/ä¿¡ç”¨å¡/.test(item?.couponName)) {
                                         $.giftList.unshift(body);
                                     } else {
                                         $.giftList.push(body);
@@ -304,21 +304,21 @@ async function main() {
                             })
                             $.giftList = [...$.giftList, ...$.giftList2];
                         } else if (data?.data?.NEST_AWARD_DAY >= 1) {
-                            text = `¼ÌĞøÇ©µ½${data.data.NEST_AWARD_DAY}Ìì¿ÉÁìÈ¡${giftMap[giftType]}È¯`;
-                            message += `£¬${text}\n`;
+                            text = `ç»§ç»­ç­¾åˆ°${data.data.NEST_AWARD_DAY}å¤©å¯é¢†å–${giftMap[giftType]}åˆ¸`;
+                            message += `ï¼Œ${text}\n`;
                             console.log(text);
                         } else {
-                            console.log(`ÔİÎŞ¿ÉÁìÈ¡µÄ½±Àø`);
+                            console.log(`æš‚æ— å¯é¢†å–çš„å¥–åŠ±`);
                             message += "\n";
                         }
                     } else {
                         console.log(JSON.stringify(data));
-                        text = `? ÕËºÅ [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] Ç©µ½Ê§°Ü£¬${data.errMsg}\n`;
+                        text = `? è´¦å· [${$.info?.USR_TEL ? hideSensitiveData($.info?.USR_TEL, 3, 4) : $.index}] ç­¾åˆ°å¤±è´¥ï¼Œ${data.errMsg}\n`;
                         console.log(text);
                         message += text;
                     }
                 } else {
-                    $.log("·şÎñÆ÷·µ»ØÁË¿ÕÊı¾İ");
+                    $.log("æœåŠ¡å™¨è¿”å›äº†ç©ºæ•°æ®");
                 }
             } catch (error) {
                 $.log(error);
@@ -330,7 +330,7 @@ async function main() {
 }
 
 
-// ÁìÈ¡½±Àø
+// é¢†å–å¥–åŠ±
 async function getGift() {
     let opt = {
         url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341C082`,
@@ -353,14 +353,14 @@ async function getGift() {
                     data = JSON.parse(data);
                     if (data.errCode == 0) {
                         $.isGetGift = true;
-                        $.getGiftMsg = `»ñµÃÇ©µ½½±Àø£º${data?.data?.title}£¨${data?.data?.subTitle}£©\n`;
+                        $.getGiftMsg = `è·å¾—ç­¾åˆ°å¥–åŠ±ï¼š${data?.data?.title}ï¼ˆ${data?.data?.subTitle}ï¼‰\n`;
                         console.log($.getGiftMsg);
                     } else {
                         $.continue = true;
                         console.log(JSON.stringify(data));
                     }
                 } else {
-                    $.log("·şÎñÆ÷·µ»ØÁË¿ÕÊı¾İ");
+                    $.log("æœåŠ¡å™¨è¿”å›äº†ç©ºæ•°æ®");
                 }
             } catch (error) {
                 $.log(error);
@@ -372,7 +372,7 @@ async function getGift() {
 }
 
 
-// »ñÈ¡×îĞÂ°æ±¾
+// è·å–æœ€æ–°ç‰ˆæœ¬
 async function getLatestVersion() {
     let opt = {
         url: `https://itunes.apple.com/cn/lookup?id=${AppId}`,
@@ -387,13 +387,13 @@ async function getLatestVersion() {
                         let result = JSON.parse(data);
                         const { trackName, bundleId, version, currentVersionReleaseDate, } = result.results[0];
                         AppVersion = version;
-                        !$.isNode() ? $.setdata(AppVersion, 'JHSH_VERSION') : '';  // Êı¾İ³Ö¾Ã»¯
-                        console.log(`°æ±¾ĞÅÏ¢: ${trackName} ${version}\nBundleId: ${bundleId} \n¸üĞÂÊ±¼ä: ${currentVersionReleaseDate}`);
+                        !$.isNode() ? $.setdata(AppVersion, 'JHSH_VERSION') : '';  // æ•°æ®æŒä¹…åŒ–
+                        console.log(`ç‰ˆæœ¬ä¿¡æ¯: ${trackName} ${version}\nBundleId: ${bundleId} \næ›´æ–°æ—¶é—´: ${currentVersionReleaseDate}`);
                     } catch (e) {
                         $.log(e);
                     };
                 } else {
-                    console.log(`°æ±¾ĞÅÏ¢»ñÈ¡Ê§°Ü\n`);
+                    console.log(`ç‰ˆæœ¬ä¿¡æ¯è·å–å¤±è´¥\n`);
                 }
             } catch (error) {
                 $.log(error);
@@ -405,7 +405,7 @@ async function getLatestVersion() {
 }
 
 
-// »ñÈ¡»·¾³±äÁ¿
+// è·å–ç¯å¢ƒå˜é‡
 function getEnv(...keys) {
     for (let key of keys) {
         var value = $.isNode() ? process.env[key] || process.env[key.toUpperCase()] || process.env[key.toLowerCase()] || $.getdata(key) : $.getdata(key);
@@ -415,9 +415,9 @@ function getEnv(...keys) {
 
 
 /**
- * ¶ÔÏóÊôĞÔ×ªĞ¡Ğ´
- * @param {object} obj - ´«Èë $request.headers
- * @returns {object} ·µ»Ø×ª»»ºóµÄ¶ÔÏó
+ * å¯¹è±¡å±æ€§è½¬å°å†™
+ * @param {object} obj - ä¼ å…¥ $request.headers
+ * @returns {object} è¿”å›è½¬æ¢åçš„å¯¹è±¡
  */
 function ObjectKeys2LowerCase(obj) {
     const _lower = Object.fromEntries(Object.entries(obj).map(([k, v]) => [k.toLowerCase(), v]))
@@ -432,7 +432,7 @@ function ObjectKeys2LowerCase(obj) {
 }
 
 
-// Êı¾İÍÑÃô
+// æ•°æ®è„±æ•
 function hideSensitiveData(string, head_length = 2, foot_length = 2) {
     let star = '';
     try {
