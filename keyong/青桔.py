@@ -5,15 +5,40 @@
 new Env("青橘")
 cron: 30 8 * * *
 """
-from datetime import datetime
 import json
 from time import sleep, time
 from os import environ, system, path
-from random import randint, choice
-from re import findall
 from sys import exit, stdout
 import requests
-
+import base64
+import hashlib
+from collections import OrderedDict
+import requests
+from urllib.parse import quote
+def get_sign(app_sec, params, extra_params):
+    combined_params = {**params, **extra_params}
+    return B(combined_params,app_sec)
+def B(t, e):
+    # Step 1: Process the input object
+    r = OrderedDict(sorted(t.items(), key=lambda item: item[0], reverse=True))
+    
+    # Step 2: Build the string
+    n = []
+    for key, value in r.items():
+        n.append(key + str(value))
+    o = e + ''.join(n) + e
+    
+    # Step 3: Encode
+    # UTF-8 encoding
+    utf8_encoded = o.encode('utf-8')
+    
+    # Base64 encoding
+    base64_encoded = base64.b64encode(utf8_encoded).decode('utf-8')
+    
+    # SHA1 hash
+    sha1_hash = hashlib.sha1(base64_encoded.encode('utf-8')).hexdigest()
+    
+    return sha1_hash
 def load_send():
     cur_path = path.abspath(path.dirname(__file__))
     if path.exists(cur_path + "/notify.py"):
@@ -76,8 +101,10 @@ class Qingju:
                    "klnt":self.klnt,
                    "accuracy":15,
                    "hwId":"10000"}
-
-        data = requests.post(url, params=params, data=payload, headers=self.headers).json()
+        sign=get_sign(app_sec="h5app07a02944776b7638e9b90793363", params=params, extra_params=payload)
+        params['sign']=sign
+        quote_payload = quote(json.dumps(payload))
+        data = requests.post(url, params=params, data=quote_payload, headers=self.headers).json()
         if 'code' in data and data['code'] == 'A0003':
             self.print_now("CK已失效，请重新获取")
             return False
