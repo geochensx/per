@@ -28,7 +28,7 @@
 # 功能：华润通
 # -------------------------------
 """
-new Env("华润通")
+new Env("一点万象")
 cron: 25 10 * * *
 """
 from datetime import datetime
