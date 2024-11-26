@@ -6,7 +6,7 @@ new Env("青橘")
 cron: 30 8 * * *
 """
 import json
-from time import sleep, time
+import time
 from os import environ, system, path
 from sys import exit, stdout
 import requests
@@ -15,6 +15,8 @@ import hashlib
 from collections import OrderedDict
 import requests
 from urllib.parse import quote
+print(environ.get("qjck"))
+qjck = json.loads(environ.get("qjck")) if environ.get("qjck") else []
 def get_sign(app_sec, params, extra_params):
     combined_params = {**params, **extra_params}
     return B(combined_params,app_sec)
@@ -49,13 +51,13 @@ def load_send():
             return False
     else:
         return False
-qjck = json.loads(environ.get("qjck")) if environ.get("qjck") else []
+
 
 class Qingju:
     name = "青桔"
     def __init__(self,user):
         self.xpsid = user['xpsid']
-        self.cityId =user['cityId']
+        self.Cityid =user['Cityid']
         self.token = user['token']
         self.klat = user['klat']
         self.klnt = user['klnt']
@@ -63,7 +65,7 @@ class Qingju:
         self.headers  = {
   'User-Agent': "Mozilla/5.0 (Linux; Android 14; M2102J2SC Build/UKQ1.231003.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/130.0.6723.102 Mobile Safari/537.36 XWEB/1300073 MMWEBSDK/20241101 MMWEBID/3827 MicroMessenger/8.0.54.2760(0x28003636) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android",
   'Content-Type': "application/json",
-  'Cityid': self.cityId,
+  'Cityid': self.Cityid,
   'xpsid': self.xpsid,
   'xpsid-root': self.xpsid,
   'charset': "utf-8",
@@ -87,7 +89,7 @@ class Qingju:
             'token': self.token,
             'userId': self.userId
             }
-        payload = {"cityId":self.cityId,
+        payload = {"cityId":self.Cityid,
                    "methodName":"signIn",
                    "serviceCode":"signInComponentService",
                    "serviceType":"SIMPLE",
@@ -105,18 +107,22 @@ class Qingju:
         params['sign']=sign
         quote_payload = quote(json.dumps(payload))
         data = requests.post(url, params=params, data=quote_payload, headers=self.headers).json()
-        if 'code' in data and data['code'] == 'A0003':
-            self.print_now("CK已失效，请重新获取")
+        if 'code' in data and data['code'] !=200:
+            print("CK已失效，请重新获取")
+            self.task_info += f"签到失败：{data}\n"
             return False
         elif 'code' in data and data['code'] == 200:
-            data_data = data['data']['data']['dailySignReward']
-            rightCount=data_data.get('rightCount')
-            rewardName=data_data.get('rewardName')
-            self.task_info += f"签到成功，今日获取{rightCount}{rewardName}\n"
-        elif 'code' in data and data['code'] == 'A00001':
-            self.task_info += f"签到失败，今天已签到\n"
+            data_data = data['data']['data']
+            if "dailySignReward" in data_data:
+                dailySignReward=data_data.get('dailySignReward')
+                rightCount=dailySignReward.get('rightCount')
+                rewardName=dailySignReward.get('rewardName')
+                self.task_info += f"签到成功，今日获取{rightCount}{rewardName}\n"
+            elif data['data'].get("msg"):
+                self.task_info += f"签到失败，{data['data']['msg']}\n"
+            else:
+                self.task_info += f"签到失败：{data}\n"
         else:
-            self.print_now(f"签到失败：{data}")
             self.task_info += f"签到失败：{data}\n"
         return True        
     def main(self):

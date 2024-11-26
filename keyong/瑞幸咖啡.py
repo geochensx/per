@@ -44,7 +44,7 @@ class RXKF:
         url = f'https://mall-api.luckincoffeeshop.com/p/signIn/userSignIn'
         data = requests.post(url, headers=self.headers, data="").json()
         if 'code' in data and data['code'] == 'A0003':
-            self.print_now("CK已失效，请重新获取")
+            self.task_info +="CK已失效，请重新获取"
             return False
         elif 'code' in data and data['code'] == '00000':
             data_data = data['data'][0]
@@ -53,7 +53,6 @@ class RXKF:
         elif 'code' in data and data['code'] == 'A00001':
             self.task_info += f"签到失败，今天已签到\n"
         else:
-            self.print_now(f"签到失败：{data}")
             self.task_info += f"签到失败：{data}\n"
         return True        
 
@@ -79,7 +78,7 @@ class RXKF:
                 data = requests.get(url, headers=self.headers).json()
                 if 'code' in data and data['code'] == '00000':
                     awardName=data['data']['awardName']
-                    self.task_info += f"抽奖成功，获得{awardName}积分\n"
+                    self.task_info += f"抽奖成功，获得{awardName}\n"
                 else:
                     self.task_info += f"抽奖失败{data}\n"
         elif lotteryNum==0:

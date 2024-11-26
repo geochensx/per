@@ -1781,13 +1781,13 @@ class RUN:
             # self.DRAGONBOAT_2024_Game_init()
             self.DRAGONBOAT_2024_coinStatus(True)
 
-        self.sendMsg()
+        # self.sendMsg()
         return True
 
-    def sendMsg(self, help=False):
-        if self.send_UID:
-            push_res = CHERWIN_TOOLS.wxpusher(self.send_UID, one_msg, APP_NAME, help)
-            print(push_res)
+    # def sendMsg(self, help=False):
+    #     if self.send_UID:
+    #         push_res = CHERWIN_TOOLS.wxpusher(self.send_UID, one_msg, APP_NAME, help)
+    #         print(push_res)
 
 
 def get_quarter_end_date():
@@ -1886,3 +1886,4 @@ export {ENV_NAME}='url'多账号#分割
             run_result = RUN(infos, index).main()
             if not run_result:
                 continue
+ if send: send(f'{APP_NAME}挂机通知', send_msg)
