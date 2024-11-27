@@ -9,6 +9,8 @@ import json
 from os import environ
 from sys import exit, stdout
 import requests
+import time
+import random
 ckname='RXKF_TOKEN'
 RXKF_TOKEN = json.loads(environ.get(ckname)) if environ.get(ckname) else []
 if RXKF_TOKEN == []:
@@ -18,13 +20,13 @@ if RXKF_TOKEN == []:
 class RXKF:
     name = "瑞幸咖啡"
     def __init__(self,user):
-        self.Authorization = user.token
+        self.Authorization = user['token']
         self.headers = {"Authorization": self.Authorization,
         "locale": "zh_CN",
         "content-type": "application/json",
-        "User-Agent": "Mozilla/5.0 (Linux; Android 14; M2102J2SC Build/UKQ1.231003.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/126.0.6478.188 Mobile Safari/537.36 XWEB/1260213 MMWEBSDK/20240802 MMWEBID/3827 MicroMessenger/8.0.53.2740(0x2800353E) WeChat/arm64 Weixin NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android",
+        "User-Agent": user['User-Agent']
         }
-        self.user_info = user.userName
+        self.user_info = user["userName"]
         self.task_info = ""
     def sign(self):
         url = f'https://mall-api.luckincoffeeshop.com/p/signIn/userSignIn'
@@ -77,9 +79,11 @@ class RXKF:
             self.lottery()
             self.get_userinfo()
         self.msg = self.user_info + self.task_info
-        QLAPI.Notify("瑞幸咖啡",self.msg)
+        QLAPI.notify("瑞幸咖啡",self.msg)
 
 if __name__ == '__main__':
     for user in RXKF_TOKEN:
+        time.sleep(random.randrange(10,20))
         rxkf = RXKF(user)
         rxkf.main()
+        time.sleep(random.randrange(20,60))
