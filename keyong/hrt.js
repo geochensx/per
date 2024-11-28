@@ -56,10 +56,9 @@ let hrthd = ($.isNode() ? process.env.hrthd : $.getdata("hrthd")) || "",
       //   log("\n============ 微信公众号：柠檬Plus ============");
       log("\n=================== 共找到 " + hrthdArr.length + " 个账号 ===================");
       debug && log("【debug】 这是你的全部账号数组:\n " + hrthdArr);
-      for (let _0x3bf82c = 0; _0x3bf82c < hrthdArr.length; _0x3bf82c++) {
-        let _0x3b9a84 = _0x3bf82c + 1;
-        addNotifyStr("\n==== 开始华润通【第 " + _0x3b9a84 + " 个账号】====", true);
-        hrthd = hrthdArr[_0x3bf82c];
+      for (let i = 0; i < hrthdArr.length; i++) {
+        addNotifyStr("\n==== 开始华润通【第${i + 1}个账号】====", true);
+        hrthd = hrthdArr[i];
         await questionget();
         await getInvitationCode();
         await saveQuestionSignin(nos);

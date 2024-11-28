@@ -1886,4 +1886,4 @@ export {ENV_NAME}='url'多账号#分割
             run_result = RUN(infos, index).main()
             if not run_result:
                 continue
- if send: send(f'{APP_NAME}挂机通知', send_msg)
+    if send: send(f'{APP_NAME}挂机通知', send_msg)
