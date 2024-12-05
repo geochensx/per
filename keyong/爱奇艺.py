@@ -161,7 +161,7 @@ class IQiYi:
         body = {
             "natural_month_sign": {
                 "verticalCode": "iQIYI",
-                "agentVersion": "15.4.6",
+                "agentVersion": "15.11.5",
                 "authCookie": self.P00001,
                 "taskCode": "iQIYI_mofhr",
                 "dfp": self.dfp,
@@ -300,13 +300,32 @@ class IQiYi:
             self.print_now(f"抽奖接口请求失败：{data}\n")
 
     def shake_lottery(self):
-        url = f'https://act.vip.iqiyi.com/shake-api/lottery?P00001={self.P00001}&dfp={self.dfp}&qyid={self.qyid}&deviceID={self.qyid}&version=15.4.6&agentType=12&platform=bb35a104d95490f6&ptid=02030031010000000000&fv=afc0b50ed49e732d&source=afc0b50ed49e732d&_={self.timestamp()}&vipType=1&lotteryType=0&actCode=0k9GkUcjddj4tne8&freeLotteryNum=3&extendParams={{"appIds":"iqiyi_pt_vip_iphone_video_autorenew_12m_348yuan_v2","supportSk2Identity":true,"testMode":"0","iosSystemVersion":"17.4.1","bundleId":"com.qiyi.iphone"}}'
-        data = self.req(url)
+        url = "https://act.vip.iqiyi.com/shake-api/lottery"
+        params = {
+        'P00001': self.P00001,
+        'dfp': self.dfp,
+        'qyid': self.qyid,
+        'deviceID':self.qyid,
+        'version': "15.11.5",
+        'agentType': "13",
+        'platform': "bb136ff4276771f3",
+        'ptid': "02020031010000000000",
+        'fv': "afc0b50ed49e732d",
+        'source': "afc0b50ed49e732d",
+        '_': self.timestamp(),
+        'vipType': "1",
+        'lotteryType': "2",
+        'actCode': "0k9GkUcjqqj4tne8",
+        'freeLotteryNum': "1",
+        'extendParams': ""
+        }
+        data = self.req(url, "get", params)
         if data.get("code") == 'A00000':
             award_info = data.get("data", {}).get("title")
             self.shakeLotteryList.append(award_info)
             sleep(2)
-            self.shake_lottery()
+            self.print_now(f"每天摇一摇奖品：{'、'.join(self.shakeLotteryList)}")
+            self.task_info += f"每天摇一摇奖品：{'、'.join(self.shakeLotteryList)}\n"
         elif data.get("msg") == "抽奖次数用完":
             if self.shakeLotteryList:
                 self.print_now(f"每天摇一摇奖品：{'、'.join(self.shakeLotteryList)}")
@@ -366,7 +385,7 @@ class IQiYi:
         self.shake_lottery()
         self.lotto_lottery()
         self.print_now(f"任务已经执行完成，因爱奇艺观影时间同步较慢，这里等待1分钟再查询今日成长值信息\n若不需要等待直接查询，请设置环境变量名 sleep_await = 0")
-        if int(self.sleep_await) == 1:
+        if int(self.sleep_await) == 0:
             sleep(60)
         self.get_userinfo()
         self.msg = self.user_info + self.task_info

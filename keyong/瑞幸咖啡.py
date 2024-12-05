@@ -1,4 +1,3 @@
-
 # 功能：瑞幸签到 
 # -------------------------------
 """
@@ -28,20 +27,25 @@ class RXKF:
         }
         self.user_info = user["userName"]
         self.task_info = ""
+        self.debug = False
+    def msg(self,msg):
+        if self.debug:
+            print(msg)
+        self.task_info += msg
     def sign(self):
         url = f'https://mall-api.luckincoffeeshop.com/p/signIn/userSignIn'
         data = requests.post(url, headers=self.headers, data="").json()
-        if 'code' in data and data['code'] == 'A0003':
-            self.task_info +="CK已失效，请重新获取"
+        if 'code' in data and data['code'] == 'A00004':
+            self.msg(self.user_info+":CK已失效，请重新获取")
             return False
         elif 'code' in data and data['code'] == '00000':
             data_data = data['data'][0]
             score = data_data.get('score')
-            self.task_info += f"签到成功，今日获取{score}积分\n"
+            self.msg(f"签到成功，今日获取{score}积分\n")
         elif 'code' in data and data['code'] == 'A00001':
-            self.task_info += f"签到失败，今天已签到\n"
+            self.msg(f"签到失败，今天已签到\n")
         else:
-            self.task_info += f"签到失败：{data}\n"
+            self.msg(f"签到失败：{data}\n")
         return True        
 
     def get_userinfo(self):
@@ -50,29 +54,29 @@ class RXKF:
         if 'code' in data and data['code'] == '00000':
             score=data['data']['score']
             userMobile=data['data']['userMobile']
-            self.user_info+=f"用户手机：{userMobile}当前积分：{score}\n"
+            self.msg(f"用户手机：{userMobile}当前积分：{score}\n")
         else:
-            self.user_info = f"查询失败,未获取到用户信息{data}\n"
+            self.msg(f"查询失败,未获取到用户信息{data}\n")
     def lottery(self):
         url = f"https://mall-api.luckincoffeeshop.com/p/lottery/getDetail?activityId=191"
         data = requests.get(url, headers=self.headers).json()
         if 'code' in data and data['code'] == '00000':
             lotteryNum=data['data']['lotteryNum']
         else:
-            self.user_info = f"抽奖失败{data}\n"
-        if lotteryNum>=1:
+            self.msg(f"抽奖失败{data}\n")
+        if lotteryNum and lotteryNum>=1:
             for i in range(lotteryNum):              
                 url=f"https://mall-api.luckincoffeeshop.com/p/lottery/lottery?activityId=191"
                 data = requests.get(url, headers=self.headers).json()
                 if 'code' in data and data['code'] == '00000':
                     awardName=data['data']['awardName']
-                    self.task_info += f"抽奖成功，获得{awardName}\n"
+                    self.msg(f"抽奖成功，获得{awardName}\n")
                 else:
-                    self.task_info += f"抽奖失败{data}\n"
+                    self.msg(f"抽奖失败{data}\n")
         elif lotteryNum==0:
-            self.task_info += f"今日已抽过奖\n"
+            self.msg(f"今日已抽过奖\n")
         else:
-            self.task_info += f"抽奖失败\n"
+            self.msg(f"抽奖失败\n")
 
     def main(self):
         if self.sign():  
@@ -83,7 +87,7 @@ class RXKF:
 
 if __name__ == '__main__':
     for user in RXKF_TOKEN:
-        time.sleep(random.randrange(10,20))
         rxkf = RXKF(user)
+        rxkf.debug=True
         rxkf.main()
         time.sleep(random.randrange(20,60))
