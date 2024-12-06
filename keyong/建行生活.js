@@ -80,7 +80,7 @@ let AppVersion = getEnv('JHSH_VERSION') || '2.1.5.002';  // 最新版本号，�
 let skipDay = getEnv('JHSH_SKIPDAY') || '';  // 下个断签日 (适用于借记卡用户)
 let bodyArr = bodyStr ? bodyStr.split("|") : [];
 let bodyArr2 = autoLoginInfo ? autoLoginInfo.split("|") : [];
-$.is_debug = getEnv('is_debug') || 'false';
+$.is_debug = getEnv('is_debug') || 'true';
 
 if (isGetCookie = typeof $request !== `undefined`) {
     GetCookie();
@@ -333,31 +333,28 @@ async function main() {
 // 领取奖励
 async function getGift() {
     let opt = {
-        url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341C082`,
+        url: `https://yunbusiness.ccb.com/clp_coupon/txCtrl?txcode=A3341C120`,
         headers: {
-            "Mid": $.info?.MID,
+            "MID": $.info?.MID,
             "Content-Type": "application/json;charset=utf-8",
-            "User-Agent": "%E5%BB%BA%E8%A1%8C%E7%94%9F%E6%B4%BB/2024110401 CFNetwork/1568.100.1 Darwin/24.0.0",
-            //   "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/CloudMercWebView/UnionPay/1.0 CCBLoongPay",
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148/CloudMercWebView/UnionPay/1.0 CCBLoongPay",
             "Accept": "application/json,text/javascript,*/*"
         },
         body: `{"mebId":"${$.info.MEB_ID}","actId":"${$.info.ACT_ID}","nodeDay":${$.nodeDay},"couponType":${$.couponType},"nodeCouponId":"${$.couponId}","dccpBscInfSn":"${$.dccpBscInfSn}","chnlType":"${$.info.chnlType}","regionCode":"${$.info.regionCode}"}`
     }
-    debug(opt);
     return new Promise(resolve => {
         $.post(opt, async (err, resp, data) => {
             try {
                 err && $.log(err);
                 if (data) {
-                    debug(data);
-                    data = JSON.parse(data);
+                    data = $.toObj(data);
                     if (data.errCode == 0) {
                         $.isGetGift = true;
                         $.getGiftMsg = `获得签到奖励：${data?.data?.title}（${data?.data?.subTitle}）\n`;
-                        console.log($.getGiftMsg);
+                        $.log($.getGiftMsg);
                     } else {
                         $.continue = true;
-                        console.log(JSON.stringify(data));
+                        $.log($.toStr(data));
                     }
                 } else {
                     $.log("服务器返回了空数据");
